@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 import Sidebar from "../widgets/components/sidebar";
 import Header from "../widgets/components/Header";
+import Footer from "../widgets/components/Footer";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -46,7 +47,7 @@ export default function DashboardPage() {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: "top" as const,
       },
       title: {
         display: true,
@@ -61,7 +62,7 @@ export default function DashboardPage() {
 
       <div className="p-4 sm:ml-64 min-h-screen bg-[#F0F2F9]">
         <div className="mb-3">
-          <p className="text-2xl font-bold">ภาพรวม</p>
+            <p className="text-2xl font-bold">ภาพรวม <span className="text-sm text-gray-500">ณ วันที่ {new Date().toLocaleString("th-TH", { year: "numeric", month: "long", day: "numeric" })}</span></p>
             <p className="text-md font-regular flex items-center gap-2 text-gray-400">
             <svg
               className="w-[26px] h-[26px] text-gray-400 dark:text-white"
@@ -74,9 +75,9 @@ export default function DashboardPage() {
             >
               <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
               />
             </svg>
@@ -367,7 +368,7 @@ export default function DashboardPage() {
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
-                            src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                            src="https://img.freepik.com/free-photo/happy-laughing-young-handsome-southeast-asian-man-isolated-blue-studio-background_74952-3619.jpg?t=st=1745908807~exp=1745912407~hmac=a877d9e7eb68ff499cee6e91d46b27afb9c428d7a99abb5cbaa8609f9988f956&w=900"
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -408,7 +409,7 @@ export default function DashboardPage() {
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
-                            src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                            src="https://img.freepik.com/free-photo/young-asia-lady-feeling-happiness-with-positive-expression-joyful-surprise-funky-dressed-casual-cloth-looking-camera-isolated-blue-background-happy-adorable-glad-woman-rejoices-success_7861-2734.jpg?t=st=1745908780~exp=1745912380~hmac=1b2ca6aef7764bc762677e2edf7bc8a97477cb6d1dd18ad4f619cf213bd13592&w=996"
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -444,6 +445,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+        <Footer/>
     </>
   );
 }
